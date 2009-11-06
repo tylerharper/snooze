@@ -1,6 +1,11 @@
 Use
 ===
 
+  The first step in using any RESTful api is knowing the base site that it is
+  attached to.
+
+  < INSERT INFO HERE >
+
   For every slash and command ("/something") in a restful api you will use a
   dot and a function call for that command (".something()").
  
