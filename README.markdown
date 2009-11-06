@@ -1,7 +1,3 @@
-Overview
-========
-  raft is a framework for generating a restful api to code 
-
 Use
 ===
   
