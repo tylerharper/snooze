@@ -2,11 +2,12 @@ Use
 ===
 
   The first step in using any RESTful api is knowing the base site that it is
-  attached to.
+  attached to.  To add the base site you will need to user the function 
+  add_base_site.  A base site for github would look like this.
 
-  < INSERT INFO HERE >
+    raft.add_base_site('http://github.com/')
 
-  For every slash and command ("/something") in a restful api you will use a
+  For every slash and command after the base url ("/something") in a restful api you will use a
   dot and a function call for that command (".something()").
  
   However you do not have to use that function call. You can override the function
