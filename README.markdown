@@ -1,6 +1,6 @@
 Use
 ===
-  
+
   For every slash and command ("/something") in a restful api you will use a
   dot and a function call for that command (".something()").
  
@@ -31,9 +31,9 @@ Use
  to be included in the restful call.  You can do this by adding a prefix
  or adding it to your base url.
  
-    raft.add_prefix('api.v2.yamel') \# it can be dots
+    raft.add_prefix('api.v2.yamel') # it can be dots
     or
-    raft.add_prefix('api/v2/yamel') \# or slashes if you forget and end slash or add and extra slash it there we take care of it
+    raft.add_prefix('api/v2/yamel') # or slashes if you forget and end slash or add and extra slash it there we take care of it
  
 Acknowledgments
 ===============
