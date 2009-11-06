@@ -1,8 +1,9 @@
 Overview
 ========
+  raft is a framework for generating a restful api to code 
 
-  A base class that can be use to generate any restFUL api into python code.
-  
+Use
+===
   
   For every slash and command ("/something") in a restful api you will use a
   dot and a function call for that command (".something()").
@@ -12,9 +13,10 @@ Overview
  
     url: http://github.com/api/v2/json/user/show/knobe
    
-    sleepy api: raft.api.v2.json.user.show.knobe
+    sleepy api: 
+    raft.api.v2.json.user.show.knobe
     or
-                raft.api.v2.json.user.show.username('knobe')
+    raft.api.v2.json.user.show.username('knobe')
    
  
   The last call will replace the username call with knobe.  This makes it easier to use
