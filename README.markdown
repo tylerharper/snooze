@@ -2,9 +2,12 @@ Use
 ===
 
   The first step in using any RESTful api is knowing the base site that it is
-  attached to.  To add the base site you will need to user the function 
+  attached to.  To add the base site you will need to uses  the constructor of Raft or the function 
   add_base_site.  A base site for github would look like this.
 
+    raft = Raft('http://github.com/')
+    or
+    raft = Raft()
     raft.add_base_site('http://github.com/')
 
   For every slash and command after the base url ("/something") in a restful api you will use a
@@ -26,6 +29,9 @@ Use
   give you the api url:
  
     http://github.com/apu/v2/json/user/show/username
+
+
+ < HOW TO CREAT USER AUTHENTICATION >
  
  
  Also you can pass POST or GET request with the options. Using the url from
@@ -41,6 +47,11 @@ Use
     or
     raft.add_prefix('api/v2/yamel') # or slashes if you forget and end slash or add and extra slash it there we take care of it
  
+ Once you have added a prefix you may want to assign it to a function call.  
+ 
+ < INSERT INFO HERE >
+
+
 Acknowledgments
 ===============
   Mike Verdone and his twitter api, because without his api

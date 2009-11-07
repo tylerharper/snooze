@@ -3,3 +3,4 @@
    - add an overview of the raft
    - Make acknowledgement sound less flowery
 - Code
+   - parse transport output based on format(Formatting class)
