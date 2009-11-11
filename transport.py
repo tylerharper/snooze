@@ -2,7 +2,7 @@ import urllib
 import urllib2
 from raft_exceptions import RaftError
 
-class Transport(object):
+class RESTfulRequest(object):
     """
     This sends the request out to server and returns the raw response.
     No formatting here.
@@ -17,7 +17,7 @@ class Transport(object):
         self.response = ''
         self.encoded_args = urllib.urlencode(model.kwargs)
         
-    def send_response(self, method):
+    def send_request(self, method='post'):
         if method.lower() == 'post':
             req = urllib2.Request(self.url, self.encoded_args)
             self.response = urllib2.urlopen(req).read()

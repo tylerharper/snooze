@@ -1,3 +1,9 @@
+===
+THIS IS A LIE
+===
+
+   well only part of it
+
 Use
 ===
 
@@ -51,6 +57,9 @@ Use
  
  < INSERT INFO HERE >
 
+
+ Now lets take a look at the controller.   The controller is used to create your
+ individual functions that will make up your api.
 
 Acknowledgments
 ===============
