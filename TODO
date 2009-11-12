@@ -1,3 +1,5 @@
 - update readme
 - Code
-   - parse transport output based on format(Formatting class)
+    - Make more forgiving
+    - parse transport output based on format(Formatting class)
+
