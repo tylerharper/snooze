@@ -11,11 +11,11 @@ Use
   attached to.  To add the base site you will need to uses  the constructor of Snooze.
   A base site for github would look like this.
 
-    snooze = Snooze('github.com/')
+    snooze = Snooze('github.com')
 
-  Note:
-    You can add the http:// or https:// but it will take it off, and make the api as secure or insecure.
-    Also if you forget the slash that is ok, we can add it for you :) 
+  Make sure you do not add the http:// or https:// onto the domain.  If you want to make it
+  secure just set the secure argument to True.  Also if you add the slash to the end of the
+  domain that is ok, we can take it off for you :) 
   
   For every slash and command after the base url ("/something") in a restful api you will use a
   dot and a attribute call for that command (".something").

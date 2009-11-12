@@ -6,11 +6,13 @@ Restful Api Framework Tada - raft
 
 from raft_exceptions import RaftError
 from transport import RESTfulRequest
+import re
 
 class Snooze(object):
-    def __init__(self, domaini, uri='', secure=False):
-        if domain[-1] != '/':
-            domain += '/'
+    def __init__(self, domain, uri='', secure=False):
+        
+        if domain[-1] == '/':
+            domain = domain[:-1]
         self.domain = domain
         
         self.uri = uri
@@ -41,4 +43,4 @@ class Snooze(object):
 
 if __name__ == '__main__':
     s = Snooze('github.com/api/v2', secure=False)
-    print s.format['json'].user.show.username['knobe'](method='get')
+    print s.format['json'].user.show.username['scotty.js'](method = 'get')
