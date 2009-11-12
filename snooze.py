@@ -8,8 +8,11 @@ from raft_exceptions import RaftError
 from transport import RESTfulRequest
 
 class Snooze(object):
-    def __init__(self, domain, uri='', secure=False,):
+    def __init__(self, domaini, uri='', secure=False):
+        if domain[-1] != '/':
+            domain += '/'
         self.domain = domain
+        
         self.uri = uri
         self.secure = secure
         self.kwargs = {}
@@ -20,7 +23,7 @@ class Snooze(object):
             return object.__getattr__(self, name)
         except AttributeError:
             name = name.replace('_','.')
-            return Snooze(self.domain, str(self.uri) + '/' +  str(name))
+            return Snooze(self.domain, str(self.uri) + '/' +  str(name), self.secure)
 
     def __call__(self, **kwargs):
         self.kwargs = kwargs
