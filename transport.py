@@ -1,6 +1,6 @@
 import urllib
 import urllib2
-from raft_exceptions import RaftError
+from snooze_exceptions import SnoozeError
 
 class RESTfulRequest(object):
     """
@@ -17,16 +17,16 @@ class RESTfulRequest(object):
         self.response = ''
         self.encoded_args = urllib.urlencode(model.kwargs)
         
-    def send_request(self, method='post'):
-        if method.lower() == 'post':
+    def send_request(self, method):
+        if method.upper() == 'POST':
             req = urllib2.Request(self.url, self.encoded_args)
             self.response = urllib2.urlopen(req).read()
-        elif method.lower() == 'get':
+        elif method.upper() == 'GET':
             url = self.url + '?' + self.encoded_args
             req = urllib2.Request(self.url)
             self.response = urllib2.urlopen(req).read()   
         else:
-            raise RaftError('%s is an unknown method we use either get or post requests' % method)
+            raise SnoozeError('%s is an unknown method we use either get or post requests' % method)
 
         return self.response
     

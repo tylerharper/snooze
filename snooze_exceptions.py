@@ -4,7 +4,7 @@ All the exceptions in raft can be found here
 
 """
 
-class RaftError(Exception):
+class SnoozeError(Exception):
     """General raft exception"""
     pass
 

@@ -4,7 +4,7 @@ Restful Api Framework Tada - raft
 
 """
 
-from raft_exceptions import RaftError
+from snooze_exceptions import SnoozeError
 from transport import RESTfulRequest
 import re
 
@@ -27,12 +27,13 @@ class Snooze(object):
             name = name.replace('_','.')
             return Snooze(self.domain, str(self.uri) + '/' +  str(name), self.secure)
 
-    def __call__(self, **kwargs):
+    def __call__(self, method='POST', **kwargs):
         self.kwargs = kwargs
+        print kwargs
         try:
             return object.__call__(self, **kwargs)
         except TypeError:
-            return RESTfulRequest(self).send_request(kwargs['method'])
+            return RESTfulRequest(self).send_request(method)
 
     def __getitem__(self, key):
         pos = self.uri.rindex('/',0,-1) # should always find a slash since __getattr__ is called first
@@ -43,4 +44,4 @@ class Snooze(object):
 
 if __name__ == '__main__':
     s = Snooze('github.com/api/v2', secure=False)
-    print s.format['json'].user.show.username['scotty.js'](method = 'get')
+    print s.format['json'].user.show.username['knobe'](method = 'GET')
