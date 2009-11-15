@@ -1,5 +1,6 @@
 - update readme
 - Code
-    - Make more forgiving
-    - parse transport output based on format(Formatting class)
-
+    - Transport needs to be able to add the headers easily
+       - We either need to restucter how we send the info or make it another option in sending it
+       - If we make it an option we need to do _headers_ and _method_ <- should be done anyway
+       - not sure of another fast way in with passing classes around

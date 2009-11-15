@@ -1,6 +1,6 @@
 """
 
-Restful Api Framework Tada - raft
+A restful api generator for the lazy
 
 """
 
