@@ -12,7 +12,7 @@ class FunctionDoesNotExist(Exception):
     pass
     
 
-class Fickle(object):
+class Ficcle(object):
     def __init__(self):
         self.function_dict = {}
     def add_function(self, func, name=None, options=[]):
@@ -21,7 +21,7 @@ class Fickle(object):
 
         self.function_dict[name] = {'function': func, 'options' : options}
     
-    def run_fickle(self):
+    def run_ficcle(self):
         function_name = sys.argv[1]
         function_option = ''
         function_option_value = ''

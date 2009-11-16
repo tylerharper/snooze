@@ -13,6 +13,11 @@ class RESTfulRequest(object):
             beg = 'https://'
         else:
             beg = 'http://'
+        
+        for x in model.kwargs:
+            if model.kwargs[x] is None:
+                model.kwargs.pop(x)
+
         self.url = beg + model.domain + model.uri
         self.response = ''
         self.encoded_args = urllib.urlencode(model.kwargs)
