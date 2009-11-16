@@ -29,7 +29,6 @@ class Snooze(object):
 
     def __call__(self, method='POST', **kwargs):
         self.kwargs = kwargs
-        print kwargs
         try:
             return object.__call__(self, **kwargs)
         except TypeError:

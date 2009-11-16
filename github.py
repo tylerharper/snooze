@@ -33,8 +33,8 @@ edit_options = ['name', 'email', 'blog', 'company', 'location']
 
 fickle = Fickle()
 
-fickle.add_function(edit, 'edit', edit_options)
-fickle.add_function(show, 'show', [])
+fickle.add_function(edit, options=edit_options)
+fickle.add_function(show)
 
 fickle.run_fickle()
 

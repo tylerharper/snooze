@@ -1,3 +1,7 @@
+- Make fickle its own repo
+  - Add auto generated help to fickle
+  - Add option checking to fickle - May not be important - *Error checking helps*
+
 - update readme
 - Code
     - Make more forgiving
