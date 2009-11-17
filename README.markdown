@@ -49,10 +49,15 @@ Use
   Note:
     This has not been tested 
 
+  Authenticating a user for github is pretty easy, and the api currently
+  supports it.  This is because it is a post variable you need to set
+  and that is it.
 
-  < HOW TO CREATE USER AUTHENTICATION >
+  For other API's they require inserting things into the the header, which is
+  not implmented yet.
+
+  < HOW TO CREATE USER AUTHENTICATION TO INPUT INTO THE HEADER >
   
-  < INSERT INFO HERE >
  
  
 Acknowledgments
