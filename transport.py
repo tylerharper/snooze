@@ -13,10 +13,14 @@ class RESTfulRequest(object):
             beg = 'https://'
         else:
             beg = 'http://'
-        
+       
+        pop_values = [] 
         for x in model.kwargs:
             if model.kwargs[x] is None:
-                model.kwargs.pop(x)
+                pop_values.append(x)
+
+        for x in pop_values:
+            model.kwargs.pop(x)
 
         self.url = beg + model.domain + model.uri
         self.response = ''
