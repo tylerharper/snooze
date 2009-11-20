@@ -82,7 +82,7 @@ if __name__ == '__main__':
     fickle = Ficcle()
 
     fickle.add_function(edit)
-    fickle.add_function(show, default=True)
+    fickle.add_function(show)
     fickle.add_function(create)
     fickle.add_function(delete)
     fickle.add_function(issue_list, name='issue-list')
