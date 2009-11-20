@@ -2,6 +2,8 @@ import snooze
 import json
 import sys
 import subprocess
+import os
+import pystache
 from ficcle import Ficcle
 
 user = subprocess.Popen(["git", "config", "--global", "github.user"], stdout=subprocess.PIPE).stdout.read().strip('\n ') 
@@ -46,15 +48,29 @@ def delete(name, delete_token=None):
     print 'If you are sure you want to delete repository %s call:' % name
     print '%s %s %s' % (sys.argv[0], sys.argv[1], del_token)
 
-edit_options = ['name', 'email', 'blog', 'company', 'location']
-        
+def issue_list(repo, username=user, state='open'):
+    resp = github.issues.list.user[user].repo[repo].state[state](_method_ = 'get')
+    issues = json.loads(resp)
+    v = pystache.View(context=issues)
+    v.template_name = 'templates/issue-list'
+    print v.render()
+    
+def repo_search(search):
+    resp = github.repos.search.search_str[search](_method_='get')
+    results = json.loads(resp)
+    v = pystache.View(context=results)
+    v.template_name = 'templates/repo-search'
+    print v.render() 
+ 
+if __name__ == '__main__':
+    fickle = Ficcle()
 
-fickle = Ficcle()
+    fickle.add_function(edit)
+    fickle.add_function(show)
+    fickle.add_function(create)
+    fickle.add_function(delete)
+    fickle.add_function(issue_list, name='issue-list')
+    fickle.add_function(repo_search, name='search-repo')
 
-fickle.add_function(edit, options=edit_options)
-fickle.add_function(show)
-fickle.add_function(create)
-fickle.add_function(delete)
-
-fickle.run_ficcle()
+    fickle.run_ficcle()
 
