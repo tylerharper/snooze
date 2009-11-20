@@ -62,6 +62,13 @@ def repo_search(search):
     v.template_name = 'templates/repo-search'
     print v.render() 
  
+def user_repos(username=user):
+    resp = github.repos.show.user[username](_method_='get')
+    results = json.loads(resp)
+    v = pystache.View(context=results)
+    v.template_name = 'templates/user-repos'
+    print v.render() 
+    
 if __name__ == '__main__':
     fickle = Ficcle()
 
@@ -71,6 +78,7 @@ if __name__ == '__main__':
     fickle.add_function(delete)
     fickle.add_function(issue_list, name='issue-list')
     fickle.add_function(repo_search, name='search-repo')
+    fickle.add_function(user_repos, name='user-repos')
 
     fickle.run_ficcle()
 
