@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 import snooze
 import json
 import sys
@@ -69,16 +70,25 @@ def user_repos(username=user):
     v.template_name = 'templates/user-repos'
     print v.render() 
     
+def show_repo(repo, username=user):
+    resp = github.repos.show.user[username].repo[repo](_method_='get')
+    results = json.loads(resp)
+    results['repository'] = [results['repository']] # used for pystache
+    v = pystache.View(context=results)
+    v.template_name = 'templates/show-repo'
+    print v.render()
+
 if __name__ == '__main__':
     fickle = Ficcle()
 
     fickle.add_function(edit)
-    fickle.add_function(show)
+    fickle.add_function(show, default=True)
     fickle.add_function(create)
     fickle.add_function(delete)
     fickle.add_function(issue_list, name='issue-list')
     fickle.add_function(repo_search, name='search-repo')
     fickle.add_function(user_repos, name='user-repos')
+    fickle.add_function(show_repo, name='show-repo')
 
     fickle.run_ficcle()
 
