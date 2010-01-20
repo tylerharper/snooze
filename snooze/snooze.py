@@ -28,12 +28,13 @@ class Snooze(object):
             name = name.replace('_','.')
             return Snooze(self.domain, str(self.uri) + '/' +  str(name), self.secure)
 
-    def __call__(self, _method_='POST', **kwargs):
+    def __call__(self, __method__='POST', __headers__={}, **kwargs):
         self.kwargs = kwargs
         try:
             return object.__call__(self, **kwargs)
         except TypeError:
-            return RESTfulRequest(self).send_request(_method_)
+            self.headers.update(__headers__)
+            return RESTfulRequest(self).send_request(__method__)
 
     def __getitem__(self, key):
         pos = self.uri.rindex('/',0,-1) # should always find a slash since __getattr__ is called first
@@ -44,5 +45,6 @@ class Snooze(object):
 
 if __name__ == '__main__':
     s = Snooze('github.com/api/v2', secure=False)
-    s.headers["User-Agent"] = "Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10.6; en-US; rv:1.9.1.5) Gecko/20091102 Firefox/3.5.5"
-    print s.format['json'].user.show.username['knobe'](_method_ = 'GET')
+    headers = {}
+    headers["User-Agent"] = "Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10.6; en-US; rv:1.9.1.5) Gecko/20091102 Firefox/3.5.5"
+    print s.format['json'].user.show.username['knobe'](__method__ = 'GET', __headers__=headers)
