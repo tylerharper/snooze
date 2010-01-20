@@ -18,6 +18,7 @@ class Snooze(object):
         self.uri = uri
         self.secure = secure
         self.kwargs = {}
+        self.headers = {}
 
     def __getattr__(self, name):
 
@@ -43,4 +44,5 @@ class Snooze(object):
 
 if __name__ == '__main__':
     s = Snooze('github.com/api/v2', secure=False)
+    s.headers["User-Agent"] = "Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10.6; en-US; rv:1.9.1.5) Gecko/20091102 Firefox/3.5.5"
     print s.format['json'].user.show.username['knobe'](_method_ = 'GET')

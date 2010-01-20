@@ -23,19 +23,20 @@ class RESTfulRequest(object):
             model.kwargs.pop(x)
 
         self.url = beg + model.domain + model.uri
+        self.headers = model.headers
         self.response = ''
         self.encoded_args = urllib.urlencode(model.kwargs)
         
     def send_request(self, method):
         if method.upper() == 'POST':
-            req = urllib2.Request(self.url, self.encoded_args)
+            req = urllib2.Request(self.url, self.encoded_args, self.headers)
             self.response = urllib2.urlopen(req).read()
         elif method.upper() == 'GET':
             url = self.url + '?' + self.encoded_args
-            req = urllib2.Request(self.url)
-            self.response = urllib2.urlopen(req).read()   
+            req = urllib2.Request(self.url, None, self.headers)
+            self.response = urllib2.urlopen(req).read()
         else:
-            raise SnoozeError('%s is an unknown method we use either get or post requests' % method)
+            raise SnoozeError('%s is an unknown method. we use either get or post requests' % method)
 
         return self.response
     
